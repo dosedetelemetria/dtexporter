@@ -16,7 +16,7 @@ func TestLoadConfig(t *testing.T) {
 	require.NoError(t, err)
 	require.NotNil(t, cm)
 
-	id := component.NewIDWithName("dtexporter", "2").String()
+	id := component.NewIDWithName(typeStr, "2").String()
 	sub, err := cm.Sub(id)
 	require.NoError(t, err)
 
