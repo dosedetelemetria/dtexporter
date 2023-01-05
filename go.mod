@@ -1,4 +1,4 @@
-module github.com/jpkrohling/dtexporter
+module github.com/dosetelemetria/dtexporter
 
 go 1.19
 
