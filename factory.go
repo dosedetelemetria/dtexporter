@@ -28,7 +28,10 @@ func createDefaultConfig() component.Config {
 }
 
 func createTraces(ctx context.Context, cs exporter.CreateSettings, cfg component.Config) (exporter.Traces, error) {
-	e := NewExporter()
+	e := NewExporter(
+		cs.Logger,
+		"",
+	)
 
 	err := e.createMetrics(cs.MeterProvider)
 	if err != nil {
