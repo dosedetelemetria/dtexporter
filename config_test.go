@@ -29,3 +29,37 @@ func TestLoadConfig(t *testing.T) {
 	assert.Equal(t, "sp-1", cfg.DataCenter)
 	assert.Equal(t, "sp", cfg.Region)
 }
+
+func TestValidate(t *testing.T) {
+	testCases := []struct {
+		desc   string
+		cfg    *Config
+		failed bool
+	}{
+		{
+			desc:   "empty datacenter",
+			cfg:    &Config{},
+			failed: true,
+		},
+		{
+			desc: "with valid datacenter",
+			cfg: &Config{
+				DataCenter: "sp-1",
+			},
+			failed: false,
+		},
+	}
+	for _, tC := range testCases {
+		t.Run(tC.desc, func(t *testing.T) {
+			// test
+			err := tC.cfg.Validate()
+
+			// verify
+			if tC.failed {
+				assert.Error(t, err)
+			} else {
+				assert.NoError(t, err)
+			}
+		})
+	}
+}
