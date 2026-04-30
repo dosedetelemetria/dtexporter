@@ -8,7 +8,7 @@ require (
 	go.opentelemetry.io/collector/component v0.68.0
 	go.opentelemetry.io/collector/confmap v0.68.0
 	go.opentelemetry.io/collector/pdata v1.0.0-rc2
-	go.opentelemetry.io/otel/metric v0.34.0
+	go.opentelemetry.io/otel/metric v0.38.1
 )
 
 require (
